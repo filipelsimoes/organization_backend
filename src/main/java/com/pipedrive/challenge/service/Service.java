@@ -28,7 +28,8 @@ public class Service {
         return organizationRepository.findAll();
     }
 
-    public void addOrganization(Organization organization){
+    public void addOrganization(String name, String parent){
+        Organization organization = new Organization (new Random().nextLong(), name, parent);
         organizationRepository.save(organization);
     }
 
@@ -41,8 +42,7 @@ public class Service {
                 String[] columns = rows[0].split(",");
                 for(int i =1; i < columns.length-1; i++){
                     String[] row = completeData.split(System.lineSeparator())[i].split(",");
-                    Organization newOrganization = new Organization(new Random().nextLong(), row[0], row[1].trim());
-                    addOrganization(newOrganization);
+                    addOrganization(row[0], row[1].trim());
                 }
             } catch (Exception e) {
                 System.err.println(e);

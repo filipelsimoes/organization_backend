@@ -32,7 +32,8 @@ public class Controller {
     }
 
     @PostMapping("/addOrganization")
-    public @ResponseBody void addOrganization(@RequestBody Organization organization) {
-        service.addOrganization(organization);
+    public @ResponseBody void addOrganization(@RequestParam String name, @RequestParam String parent) {
+        System.out.println("name -> " + name);
+        service.addOrganization(name, parent);
     }
 }
