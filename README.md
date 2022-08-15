@@ -11,5 +11,12 @@ Here you can find 4 endpoints:
   All the GET endpoints return the list order alphabetic by name.
   
   In the file application.properties you can find the configuration to connect to a postgresql Database.
+  About the database, just need to create a simple postgresql database with the configuration found in application.properties.
+    username: postgres
+    password: postgres
+    database: postgres
+    port: 5432
+    url to connect: jdbc:postgresql://localhost:5432/postgres
+    
   
   If the project captur an error on start, try to maven clean and then maven install.
