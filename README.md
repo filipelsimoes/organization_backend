@@ -11,3 +11,5 @@ Here you can find 4 endpoints:
   All the GET endpoints return the list order alphabetic by name.
   
   In the file application.properties you can find the configuration to connect to a postgresql Database.
+  
+  If the project captur an error on start, try to maven clean and then maven install.
