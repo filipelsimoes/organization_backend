@@ -5,9 +5,7 @@ import com.pipedrive.challenge.repository.OrganizationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Stream;
 
 @org.springframework.stereotype.Service
@@ -17,14 +15,16 @@ public class Service {
     private final OrganizationRepository organizationRepository;
 
     public HashSet<Organization> getOrganization(String name){
-        List<Organization> byParent = organizationRepository.findAllByParent(name);
-        List<Organization> byName = organizationRepository.findByName(name);
-        List<Organization> newList = Stream.concat(byName.stream(), byParent.stream()).toList();
-        HashSet<Organization> newHash = new HashSet<>(newList);
+        List<Organization> byName = organizationRepository.findByNameOrderByNameAsc(name);
+        List<Organization> byParent = organizationRepository.findAllByParentOrderByNameAsc(name);
+        List<Organization> newList = new ArrayList<>();
+        newList.add(0, byName.get(0));
+        newList.addAll(byParent);
+        LinkedHashSet<Organization> newHash = new LinkedHashSet<>(newList);
         return newHash;
     }
     public List<Organization> getAllOrganizations(){
-        return organizationRepository.findAll();
+        return organizationRepository.findAllByOrderByNameAsc();
     }
 
     public void addOrganization(String name, String parent){

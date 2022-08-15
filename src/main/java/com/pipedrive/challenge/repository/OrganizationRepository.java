@@ -9,6 +9,7 @@ import java.util.List;
 @Repository
 public interface OrganizationRepository extends JpaRepository<Organization, Long> {
 
-    List<Organization> findByName(String organizationName);
-    List<Organization> findAllByParent(String parentOrganization);
+    List<Organization> findAllByOrderByNameAsc();
+    List<Organization> findByNameOrderByNameAsc(String organizationName);
+    List<Organization> findAllByParentOrderByNameAsc(String parentOrganization);
 }
