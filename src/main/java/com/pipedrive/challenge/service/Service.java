@@ -24,7 +24,6 @@ public class Service {
         return newHash;
     }
     public List<Organization> getAllOrganizations(){
-        System.out.println(organizationRepository.findAll());
         return organizationRepository.findAll();
     }
 
