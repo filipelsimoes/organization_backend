@@ -19,4 +19,4 @@ Here you can find 4 endpoints:
     url to connect: jdbc:postgresql://localhost:5432/postgres
     
   
-  If the project captur an error on start, try to maven clean and then maven install.
+  If the project launches an error on start, try to maven clean and then maven install.
