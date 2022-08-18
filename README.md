@@ -1,5 +1,3 @@
-# pipedrive_challenge
-
 Backend project done with Java and springboot.
 
 Here you can find 4 endpoints: 
